@@ -33,6 +33,17 @@ The container used is container-registry.oracle.com/database/express:21.3.0-xe. 
 
 ## Setup
 
+### Oracle Instant Client
+Before performing the build, the Kafka Connect container needs the Oracle Instant client.  Refer to the Oracle Instant Client download page to download the necessary packages and review the license agreement.  Download the Basic Package and extract the contents into the connect/instantclient directory.
+
+Here is an example of the process for Mac OS:
+```
+cd debezium-poc/connect
+wget https://download.oracle.com/otn_software/mac/instantclient/198000/instantclient-basic-macos.x64-19.8.0.0.0dbru.zip 
+unzip instantclient-basic-macos.x64-19.8.0.0.0dbru.zip
+mv instantclient_19_8 instantclient
+```
+
 ### Docker Compose
 Review the docker compose file and make any necessary adjustments for volumes.  Note that if any port modifications are made there may be requirements to modify the connector json files.
 
