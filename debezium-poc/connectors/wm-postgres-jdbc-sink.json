@@ -1,0 +1,26 @@
+{
+    "name": "wm-postgres-sink",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "wikimedia",
+        "connection.url": "jdbc:postgresql://postgres:5433/postgres?user=postgres&password=Elc4r016",
+        "auto.create": "false",
+        "auto.evolve": "false",
+        "insert.mode": "insert",
+        "delete.enabled": "false",
+        "quote.sql.identifiers": "never",
+        "key.converter"                      : "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable"       : "false",
+        "value.converter"                    : "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable"     : "false",  
+        "transforms": "t0,t1,t2,t3",
+        "transforms.t0.type": "org.apache.kafka.connect.transforms.ExtractField$Value",
+        "transforms.t0.field": "meta",
+        "transforms.t1.type": "org.apache.kafka.connect.transforms.Flatten$Value",
+        "transforms.t2.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+        "transforms.t2.renames": "meta.uri:uri,meta.id:id,meta.dt:dt,meta.domain:domain,meta.stream:stream,meta.topic:topic",
+        "transforms.t3.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+        "transforms.t3.whitelist": "uri,id,dt,domain,stream,topic"
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "oracle-connector",
+  "config": {
+    "connector.class" : "io.debezium.connector.oracle.OracleConnector",
+    "tasks.max" : "1",
+    "database.server.name" : "oradbhr3",
+    "database.hostname" : "oracle",
+    "database.port" : "1521",
+    "database.user" : "c##dbzuser",
+    "database.password" : "welcome1",
+    "database.dbname" : "XE",
+    "database.pdb.name" : "XEPDB1",
+    "database.connection.adapter" : "logminer",
+    "database.history.kafka.bootstrap.servers" : "kafka:19092",
+    "database.history.kafka.topic": "schema-changes.oracle",
+    "table.include.list": "hr.employees,hr.departmarts,hr.jobs,hr.locations",
+    "transforms": "TimestampConverter,topicCase,route",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+    "transforms.route.replacement": "$3",
+    "transforms.topicCase.type": "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+    "transforms.topicCase.from": "LOWER_HYPHEN",
+    "transforms.topicCase.to"  : "UPPER_CAMEL",
+    "transforms.TimestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter$Value",
+    "transforms.TimestampConverter.format": "MM-DD-YYYY",
+    "transforms.TimestampConverter.field": "HIRE_DATE",
+    "transforms.TimestampConverter.target.type": "string"    
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "postgres-connector",
+    "config": {
+      "connector.class" : "io.debezium.connector.postgresql.PostgresConnector",
+      "tasks.max" : "1",
+      "database.server.name" : "pghr",
+      "database.hostname" : "postgres",
+      "database.port" : "5433",
+      "database.user" : "postgres",
+      "database.password" : "welcome1",
+      "database.dbname" : "postgres",
+      "plugin.name": "pgoutput",
+      "database.history.kafka.bootstrap.servers" : "kafka:19092",
+      "database.history.kafka.topic": "schema-changes.postgres",
+      "table.include.list": "public.movie",
+      "transforms": "topicCase,route",
+      "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+      "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+      "transforms.route.replacement": "$3",
+      "transforms.topicCase.type": "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+      "transforms.topicCase.from": "LOWER_HYPHEN",
+      "transforms.topicCase.to"  : "UPPER_CAMEL"
+    }
+  }
+  

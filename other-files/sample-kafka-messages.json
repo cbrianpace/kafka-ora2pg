@@ -1,0 +1,784 @@
+[
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": null,
+      "after": {
+        "ID": 1001,
+        "FIRST_NAME": "Sally",
+        "LAST_NAME": "Thomas",
+        "EMAIL": "sally.thomas@acme.com"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663636403678,
+        "snapshot": "true",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": null,
+        "scn": "3897030",
+        "commit_scn": null,
+        "lcr_position": null,
+        "rs_id": null,
+        "ssn": null,
+        "redo_thread": null
+      },
+      "op": "r",
+      "ts_ms": 1663636403681,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": null,
+      "after": {
+        "ID": 1002,
+        "FIRST_NAME": "George",
+        "LAST_NAME": "Bailey",
+        "EMAIL": "gbailey@foobar.com"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663636403684,
+        "snapshot": "true",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": null,
+        "scn": "3897030",
+        "commit_scn": null,
+        "lcr_position": null,
+        "rs_id": null,
+        "ssn": null,
+        "redo_thread": null
+      },
+      "op": "r",
+      "ts_ms": 1663636403685,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": null,
+      "after": {
+        "ID": 1003,
+        "FIRST_NAME": "Edward",
+        "LAST_NAME": "Walker",
+        "EMAIL": "ed@walker.com"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663636403685,
+        "snapshot": "true",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": null,
+        "scn": "3897030",
+        "commit_scn": null,
+        "lcr_position": null,
+        "rs_id": null,
+        "ssn": null,
+        "redo_thread": null
+      },
+      "op": "r",
+      "ts_ms": 1663636403685,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": null,
+      "after": {
+        "ID": 1004,
+        "FIRST_NAME": "Anne",
+        "LAST_NAME": "Kretchmar",
+        "EMAIL": "annek@noanswer.org"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663636403685,
+        "snapshot": "true",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": null,
+        "scn": "3897030",
+        "commit_scn": null,
+        "lcr_position": null,
+        "rs_id": null,
+        "ssn": null,
+        "redo_thread": null
+      },
+      "op": "r",
+      "ts_ms": 1663636403685,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": null,
+      "after": {
+        "ID": 1021,
+        "FIRST_NAME": "Brian",
+        "LAST_NAME": "Pace",
+        "EMAIL": "brian.pace@crunchydata.com"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663637491000,
+        "snapshot": "false",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": "01001e0097020000",
+        "scn": "4087919",
+        "commit_scn": "4087932",
+        "lcr_position": null,
+        "rs_id": " 0x00002c.0004da7d.0010 ",
+        "ssn": 0,
+        "redo_thread": 1
+      },
+      "op": "c",
+      "ts_ms": 1663637497975,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": {
+        "ID": 1021,
+        "FIRST_NAME": "Brian",
+        "LAST_NAME": "Pace",
+        "EMAIL": "brian.pace@crunchydata.com"
+      },
+      "after": {
+        "ID": 1021,
+        "FIRST_NAME": "Charles",
+        "LAST_NAME": "Pace",
+        "EMAIL": "brian.pace@crunchydata.com"
+      },
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663637553000,
+        "snapshot": "false",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": "020004005b020000",
+        "scn": "4088325",
+        "commit_scn": "4088335",
+        "lcr_position": null,
+        "rs_id": " 0x00002c.0004dbf0.0010 ",
+        "ssn": 0,
+        "redo_thread": 1
+      },
+      "op": "u",
+      "ts_ms": 1663637558835,
+      "transaction": null
+    }
+  },
+  {
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "before"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "int16", "optional": false, "field": "ID" },
+            { "type": "string", "optional": false, "field": "FIRST_NAME" },
+            { "type": "string", "optional": false, "field": "LAST_NAME" },
+            { "type": "string", "optional": false, "field": "EMAIL" }
+          ],
+          "optional": true,
+          "name": "server1.DEBEZIUM.CUSTOMERS.Value",
+          "field": "after"
+        },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "version" },
+            { "type": "string", "optional": false, "field": "connector" },
+            { "type": "string", "optional": false, "field": "name" },
+            { "type": "int64", "optional": false, "field": "ts_ms" },
+            {
+              "type": "string",
+              "optional": true,
+              "name": "io.debezium.data.Enum",
+              "version": 1,
+              "parameters": { "allowed": "true,last,false,incremental" },
+              "default": "false",
+              "field": "snapshot"
+            },
+            { "type": "string", "optional": false, "field": "db" },
+            { "type": "string", "optional": true, "field": "sequence" },
+            { "type": "string", "optional": false, "field": "schema" },
+            { "type": "string", "optional": false, "field": "table" },
+            { "type": "string", "optional": true, "field": "txId" },
+            { "type": "string", "optional": true, "field": "scn" },
+            { "type": "string", "optional": true, "field": "commit_scn" },
+            { "type": "string", "optional": true, "field": "lcr_position" },
+            { "type": "string", "optional": true, "field": "rs_id" },
+            { "type": "int32", "optional": true, "field": "ssn" },
+            { "type": "int32", "optional": true, "field": "redo_thread" }
+          ],
+          "optional": false,
+          "name": "io.debezium.connector.oracle.Source",
+          "field": "source"
+        },
+        { "type": "string", "optional": false, "field": "op" },
+        { "type": "int64", "optional": true, "field": "ts_ms" },
+        {
+          "type": "struct",
+          "fields": [
+            { "type": "string", "optional": false, "field": "id" },
+            { "type": "int64", "optional": false, "field": "total_order" },
+            {
+              "type": "int64",
+              "optional": false,
+              "field": "data_collection_order"
+            }
+          ],
+          "optional": true,
+          "field": "transaction"
+        }
+      ],
+      "optional": false,
+      "name": "server1.DEBEZIUM.CUSTOMERS.Envelope"
+    },
+    "payload": {
+      "before": {
+        "ID": 1021,
+        "FIRST_NAME": "Charles",
+        "LAST_NAME": "Pace",
+        "EMAIL": "brian.pace@crunchydata.com"
+      },
+      "after": null,
+      "source": {
+        "version": "1.9.5.Final",
+        "connector": "oracle",
+        "name": "server1",
+        "ts_ms": 1663637578000,
+        "snapshot": "false",
+        "db": "XEPDB1",
+        "sequence": null,
+        "schema": "DEBEZIUM",
+        "table": "CUSTOMERS",
+        "txId": "09000a0055020000",
+        "scn": "4088431",
+        "commit_scn": "4088786",
+        "lcr_position": null,
+        "rs_id": " 0x00002c.0004dfb6.0010 ",
+        "ssn": 0,
+        "redo_thread": 1
+      },
+      "op": "d",
+      "ts_ms": 1663637630875,
+      "transaction": null
+    }
+  }
+]

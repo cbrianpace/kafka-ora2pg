@@ -1,0 +1,27 @@
+{
+    "name": "oracle-sink",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "movie",
+        "connection.url": "jdbc:oracle:thin:@oracle:1521/xepdb1",
+        "connection.user": "hr",
+        "connection.password": "welcome1",
+        "auto.create": "false",
+        "auto.evolve": "false",
+        "insert.mode": "upsert",
+        "delete.enabled": "true",
+        "pk.mode": "record_key",
+        "quote.sql.identifiers": "never",
+        "transforms": "topicCase,unwrap,TimestampConverter",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+        "transforms.unwrap.drop.tombstones": "false",
+        "transforms.TimestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter$Value",
+        "transforms.TimestampConverter.format": "yyyy-dd-MM",
+        "transforms.TimestampConverter.field": "HIRE_DATE",
+        "transforms.TimestampConverter.target.type": "Timestamp",
+        "transforms.topicCase.type": "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+        "transforms.topicCase.from": "LOWER_HYPHEN",
+        "transforms.topicCase.to"  : "UPPER_UNDERSCORE"    
+    }
+}

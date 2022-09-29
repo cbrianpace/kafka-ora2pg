@@ -1,0 +1,4 @@
+FROM container-registry.oracle.com/database/express:21.3.0-xe
+
+COPY --chown=oracle:oracle sql /home/oracle/sql
+COPY --chown=oracle:oracle --chmod=0755 setup-logminer.sh /home/oracle/

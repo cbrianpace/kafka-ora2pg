@@ -1,0 +1,22 @@
+{
+    "name": "postgres-sink",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "employees,departments,jobs,locations",
+        "connection.url": "jdbc:postgresql://postgres:5433/hr?user=postgres&password=welcome1",
+        "auto.create": "true",
+        "auto.evolve": "true",
+        "insert.mode": "upsert",
+        "delete.enabled": "true",
+        "pk.mode": "record_key",
+        "quote.sql.identifiers": "never",
+        "transforms": "unwrap,TimestampConverter",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+        "transforms.unwrap.drop.tombstones": "false",
+        "transforms.TimestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter$Value",
+        "transforms.TimestampConverter.format": "yyyy-dd-MM",
+        "transforms.TimestampConverter.field": "HIRE_DATE",
+        "transforms.TimestampConverter.target.type": "Timestamp"  
+    }
+}
