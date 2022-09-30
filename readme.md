@@ -32,13 +32,14 @@ Oracle Database Express Edition is used in this tutorial.  Prior to using this t
 The container used is container-registry.oracle.com/database/express:21.3.0-xe.  As this container spins up for the first time it could take several minutes to create the new instance.
 
 ## Setup
+All of the steps assume the current directory is debezium-poc.
 
 ### Oracle Instant Client
 Before performing the build, the Kafka Connect container needs the Oracle Instant client.  Refer to the Oracle Instant Client download page to download the necessary packages and review the license agreement.  Download the Basic Package and extract the contents into the connect/instantclient directory.
 
 Here is an example of the process for Mac OS:
 ```
-cd debezium-poc/connect
+cd connect
 wget https://download.oracle.com/otn_software/mac/instantclient/198000/instantclient-basic-macos.x64-19.8.0.0.0dbru.zip 
 unzip instantclient-basic-macos.x64-19.8.0.0.0dbru.zip
 mv instantclient_19_8 instantclient
