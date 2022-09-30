@@ -16,7 +16,7 @@ USER kafka
 # Add Oracle client and drivers
 COPY --chown=kafka:kafka instantclient/xstreams.jar /kafka/libs
 COPY --chown=kafka:kafka instantclient/ojdbc8.jar /kafka/libs
-COPY --chown=kafka:kafka instantclient /oracle/
+#COPY --chown=kafka:kafka instantclient /oracle/
 
 # Add Confluent kafka connect for jdbc & elastic sink connector
 COPY --chown=kafka:kafka confluentinc-kafka-connect-jdbc-10.3.3/lib/*.jar /kafka/connect/kafka-connect-jdbc/

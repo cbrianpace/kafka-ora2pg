@@ -57,10 +57,10 @@ docker-compose -f docker-compose.yaml up --build -d
 Once the Oracle container is fully up and running (look for the 'Database is Ready' banner in the container log), the database needs to be modified to enable archive log mode, supplemental logging, etc.  Use the following steps to exec into the Oracle container and perform these setups.  The database will restart several times.
 
 ```
-$ docker exec -it oracle /bin/bash
-$ ./setup-logminer.sh
-$ sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/hr-ora.sql
-$ sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/mlb-ora.sql 
+docker exec -it oracle /bin/bash
+./setup-oracle.sh
+sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/hr-ora.sql
+sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/mlb-ora.sql 
 ```
 
 The container may also report a few ORA-600s which can be ignored as this is related to the container environment itself and does not affect the functionality needed for this tutorial.
@@ -69,9 +69,9 @@ The container may also report a few ORA-600s which can be ignored as this is rel
 To setup Postgres database execute the commands below.
 
 ```
-$ docker exec -it postgres /bin/bash
-$ psql -p 5433 -f /var/lib/pgsql/sql/hr-pg.sql
-$ psql -p 5433 -f /var/lib/pgsql/sql/mlb-pg.sql
+docker exec -it postgres /bin/bash
+psql -p 5433 -f /var/lib/pgsql/sql/hr-pg.sql
+psql -p 5433 -f /var/lib/pgsql/sql/mlb-pg.sql
 ```
 
 ### Register the Connectors
@@ -79,10 +79,10 @@ $ psql -p 5433 -f /var/lib/pgsql/sql/mlb-pg.sql
 Using curl, register the connectors with Kafka-Connect.
 
 ```
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @oracle-connector.json
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @postgres-connector.json
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @postgres-sink.json
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @oracle-sink.json
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @connectors/oracle-connector.json
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @connectors/postgres-connector.json
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @connectors/postgres-sink.json
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @connectors/oracle-sink.json
 ```
 
 ### Check Kafka Connect Logs
@@ -99,7 +99,7 @@ Exec into Oracle container and start sqlplus.
 
 ```
 docker exec -it oracle /bin/bash
-sqlplus sys/welcome1@localhost:1521/xepdb1
+sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba
 ```
 
 From within the sqlplus session, execute the following SQL statements.
@@ -145,7 +145,7 @@ Exec into Oracle container and start sqlplus.
 
 ```
 docker exec -it oracle /bin/bash
-sqlplus sys/welcome1@localhost:1521/xepdb1
+sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba
 ```
 Run the following SQL statement to verify the updates in Oracle.
 
@@ -155,3 +155,5 @@ SELECT * FROM sport.venue WHERE venue_id IN (900,136);
 
 ## Conclussion
 Debezium helps bridge the data gap by performing change data capture in both Oracle and Postgres and publishing those messages to Kafka.  The Oracle capture leverages logminner which does have some scalability challenges.  On the Postgres side, Debezium leverages the native logical replication capabilities and scales better.
+
+Last, Prometheus and Grafana is deployed with built in dashboards and mining of metrics published by Debezium.  Be sure to check those out by access Grafana at http://localhost:3000.  The default user/password for Grafana is admin/admin.

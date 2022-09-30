@@ -1,4 +1,4 @@
-FROM registry.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-14.5-3.1-0
+FROM registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-14.5-3.1-0
 
 COPY --chown=postgres:postgres sql /var/lib/pgsql/sql
 
