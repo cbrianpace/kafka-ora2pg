@@ -133,7 +133,7 @@ Now let us test the reverse replication using the sports tables.  Connect to Pos
 ```
 docker exec -it postgres psql -p 5433 -d sport
 ```
-Run the following SQL statements to udpate data in Postgres.
+Run the following SQL statements to update data in Postgres.
 
 ```
 INSERT INTO venue (venue_id, venue_name, city, country) VALUES (900,'Crunchy Park', 'Jacksonville, FL', 'USA');
@@ -154,7 +154,7 @@ Run the following SQL statement to verify the updates in Oracle.
 SELECT * FROM sport.venue WHERE venue_id IN (900,136);
 ```
 
-## Conclussion
+## Conclusion
 Debezium helps bridge the data gap by performing change data capture in both Oracle and Postgres and publishing those messages to Kafka.  The Oracle capture leverages logminner which does have some scalability challenges.  On the Postgres side, Debezium leverages the native logical replication capabilities and scales better.
 
 Last, Prometheus and Grafana is deployed with built in dashboards and mining of metrics published by Debezium.  Be sure to check those out by access Grafana at http://localhost:3000.  The default user/password for Grafana is admin/admin.
