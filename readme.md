@@ -1,7 +1,7 @@
 # Database Replication with Debezium and Kafka
 It is common for other databases outside of the 'source' database to require up-to-date data to other systems.  This tutorial will step through setting up this replication from stratch.  
 
-There are two sets of data that will be replicated.  The first is HR related tables (employees, departments, jobs, locations) which will be replicated from Oracle to Postgres.  The second is MLB related tables (game, team, venue) which will be replicated from Postgres to Oracle.
+There are two sets of data that will be replicated.  The first is HR related tables (employees, departments, jobs, locations) which will be replicated from Oracle to Postgres.  The second is baseball related tables (game, team, venue) which will be replicated from Postgres to Oracle.
 
 ## Components Overview
 
