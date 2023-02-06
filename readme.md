@@ -60,6 +60,9 @@ Once the Oracle container is fully up and running (look for the 'Database is Rea
 
 ```
 docker exec -it oracle /bin/bash
+su - oracle
+# Set ORACLE_SID to XE using oraenv
+. oraenv
 ./setup-oracle.sh
 sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/hr-ora.sql
 sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba @sql/mlb-ora.sql 
