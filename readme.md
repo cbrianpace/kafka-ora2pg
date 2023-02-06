@@ -51,6 +51,7 @@ Review the docker compose file and make any necessary adjustments for volumes.  
 Deploy the environment using docker-compose.
 
 ```
+cd debezium-poc
 docker-compose -f docker-compose.yaml up --build -d
 ```
 
