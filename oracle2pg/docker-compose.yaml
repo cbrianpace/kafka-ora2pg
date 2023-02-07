@@ -1,0 +1,33 @@
+version: '2'
+services:
+  oracle:
+    container_name: oracle
+    build:
+      context: oracle
+    ports:
+     - 1521:1521
+    environment:
+     - ORACLE_PWD=welcome1
+    volumes:
+     - /app/docker/oracle/oradata:/opt/oracle/oradata
+     - /app/docker/oracle/diag:/opt/oracle/diag
+  postgres:
+    container_name: postgres
+    build:
+      context: postgres
+    volumes:
+      - /app/docker/postgres/pgdata:/pgdata
+    ports:
+      - "5433:5433"
+    environment:
+      PG_MODE: primary
+      MODE: postgres
+      PG_USER: appuser
+      PG_PASSWORD: welcome1
+      PG_DATABASE: app
+      PG_PRIMARY_USER: appuser
+      PG_PRIMARY_PORT: 5433
+      PG_PRIMARY_PASSWORD: welcome1
+      PG_ROOT_PASSWORD: welcome1
+      PGHOST: /tmp
+      PGDATA_PATH_OVERRIDE: pg14
