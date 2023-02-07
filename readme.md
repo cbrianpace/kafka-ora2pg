@@ -29,7 +29,7 @@ Several ports are exposed to interact with the deployed containers and software 
 ### Oracle
 Oracle Database Express Edition is used in this tutorial.  Prior to using this tutorial be sure that you have read and understand the licenses around Express Edition.
 
-The container used is container-registry.oracle.com/database/express:21.3.0-xe.  As this container spins up for the first time it could take several minutes to create the new instance.
+The container used is container-registry.oracle.com/database/express:21.3.0-xe.  As this container spins up for the first time it could take several minutes to create the new instance.  If deploying on Linux then modify the oracle/Dockerfile and comment out the COPY lines for runOracle.sh, checkDBStatus.sh, createDB.sh.  These custom scripts are required to workaround issues on Mac (and possibily Windows).
 
 ## Setup
 All of the steps assume the current directory is debezium-poc.
@@ -104,6 +104,9 @@ Exec into Oracle container and start sqlplus.
 
 ```
 docker exec -it oracle /bin/bash
+su - oracle
+# Set ORACLE_SID to XE via oraenv
+. oraenv
 sqlplus sys/welcome1@localhost:1521/xepdb1 as sysdba
 ```
 
