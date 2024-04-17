@@ -1,2 +1,3 @@
 debezium-poc/connect/instantclient
 .vscode
+.DS_Store
