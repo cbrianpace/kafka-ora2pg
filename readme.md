@@ -15,6 +15,14 @@ Several volumes need to be presented to various containers to persist data.  Be 
 | oracle       | /opt/oracle/oradata  |
 | postgres     | /pgdata              |
 
+To prepare mounts, create local directories and update the docker-compose file with the correct source mappings.  Below is used for this example:
+
+```shell
+mkdir -p /app/docker/oracle/oradata
+mkdir -p /app/docker/oracle/diag/rdbms
+mkdir -p /app/docker/postgres/pgdata
+```
+
 ### Ports
 
 Several ports are exposed to interact with the deployed containers and software deployments.  Note that Postgres is using the non-default port setting of 5433 to avoid any already running Postgres clusters. 

@@ -108,13 +108,13 @@ services:
     depends_on:
      - connect
   grafana:
-    container_name: grafana
+    container_name: grafana-debezium
     build:
       context: debezium-grafana
       args:
         GRAFANA_VERSION: 7.5.5
     ports:
-     - 3000:3000
+     - 3001:3000
     links:
      - prometheus
     depends_on:
