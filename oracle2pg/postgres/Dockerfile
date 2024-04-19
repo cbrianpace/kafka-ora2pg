@@ -1,6 +1,7 @@
 FROM registry.developers.crunchydata.com/crunchydata/crunchy-postgres:ubi8-16.1-1
 
 COPY --chown=postgres:postgres sql /var/lib/pgsql/sql
+COPY --chown=postgres:postgres postgresql.conf.template /opt/crunchy/conf/postgres/postgresql.conf.template
 
 USER root
 

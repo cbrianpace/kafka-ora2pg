@@ -35,7 +35,7 @@ Several ports are exposed to interact with the deployed containers and software 
 | kafka        | 9092,29092,9999 |
 | connect      | 8083,9080,9012  |
 | prometheus   | 9090            |
-| grafana      | 3000            |
+| grafana      | 3001            |
 
 ### Oracle
 
@@ -189,4 +189,4 @@ SELECT * FROM sport.venue WHERE venue_id IN (900,136);
 
 Debezium helps bridge the data gap by performing change data capture in both Oracle and Postgres and publishing those messages to Kafka.  The Oracle capture leverages logminner which does have some scalability challenges.  On the Postgres side, Debezium leverages the native logical replication capabilities and scales better.
 
-Last, Prometheus and Grafana is deployed with built in dashboards and mining of metrics published by Debezium.  Be sure to check those out by access Grafana at http://localhost:3000.  The default user/password for Grafana is admin/admin.
+Last, Prometheus and Grafana is deployed with built in dashboards and mining of metrics published by Debezium.  Be sure to check those out by access Grafana at http://localhost:3001.  The default user/password for Grafana is admin/admin.
